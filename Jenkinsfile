@@ -2,16 +2,14 @@ pipeline {
     agent any 
     // This shows a simple build wrapper example, using the AnsiColor plugin.
     // This displays colors using the 'xterm' ansi color map in the console output
-    ansiColor('xterm') {
-        // Just some echoes to show the ANSI color.
-        stage "\u001B[31mI'm Red\u001B[0m Now not"
-    }
     options {
+        ansiColor('xterm')
         skipStagesAfterUnstable()
+        timestamps
         }
     tools {
         // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-        maven "Maven 3.6.3"
+        maven 'maven'
     }
     environment {
         // This can be nexus3 or nexus2
@@ -59,6 +57,7 @@ pipeline {
                     sh "mvn package -DskipTests=true"
                 }
             }
+            tools { maven 'maven' }
         }
         stage("UnitTest_mvn") {
             steps {
@@ -129,6 +128,9 @@ pipeline {
         always {
             echo 'JENKINS PIPELINE'
         }
+        notBuilt {
+            echo 'JENKINS PIPELINE NOT BUILT'
+        }
         success {
             echo 'JENKINS PIPELINE SUCCESSFUL'
         }
@@ -140,6 +142,9 @@ pipeline {
         }
         changed {
             echo 'JENKINS PIPELINE STATUS HAS CHANGED SINCE LAST EXECUTION'
+        }
+        aborted {
+            echo 'JENKINS PIPELINE ABORTED'
         }
     }
 }
