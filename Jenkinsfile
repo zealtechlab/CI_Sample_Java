@@ -98,7 +98,8 @@ pipeline {
                                     artifactId: pom.artifactId, groupId: pom.groupId, 
                                     packaging: pom.packaging, version: pom.version]
                                     ]
-                                ]
+                                ],
+                                , tagName: ${BRANCH_NAME}
                     } else {
                         error "*** File: ${artifactPath}, could not be found";
                     }
