@@ -40,7 +40,7 @@ pipeline {
                 script {
                     // Let's clone the source
                     echo 'Repo Checkout'
-                    echo 'printenv'
+                    sh 'printenv'
                     // git 'https://github.com/danielalejandrohc/cargotracker.git';
                 }
             }
