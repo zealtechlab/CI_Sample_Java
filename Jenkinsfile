@@ -6,25 +6,16 @@ pipeline {
         ansiColor('xterm')
         skipStagesAfterUnstable()
         }
-    tools {
-        // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
-        maven 'maven'
-    }
+    // tools {
+    //     // Note: this should match with the tool name configured in your jenkins instance (JENKINS_URL/configureTools/)
+    //     maven 'maven'
+    // }
     environment {
         NEXUS_INSTANCE = 'sonatypeNexus'
-        // This can be nexus3 or nexus2
-        // NEXUS_VERSION = "nexus3"
-        // This can be http or https
-        // NEXUS_PROTOCOL = "http"
-        // Where your Nexus is running
-        // NEXUS_URL = "172.22.0.4:8081"
-        // Repository where we will upload the artifact
         NEXUS_REPOSITORY = "CI_Sample_Java"
         // // Repository where we will upload the artifact
         // NEXUS_REPOSITORY_RELEASES = "maven-releases"
         // NEXUS_REPOSITORY_SNAPSHOTS = "maven-snapshots"
-        // Jenkins credential id to authenticate to Nexus OSS
-        // NEXUS_CREDENTIAL_ID = "sonatypeNexus"
     }
 
     stages {
@@ -94,24 +85,7 @@ pipeline {
                     artifactExists = fileExists artifactPath;
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
-                        // nexusArtifactUploader(
-                        //     nexusVersion: NEXUS_VERSION, protocol: NEXUS_PROTOCOL,
-                        //     nexusUrl: NEXUS_URL, groupId: pom.groupId,
-                        //     version: pom.version, repository: NEXUS_REPOSITORY,
-                        //     credentialsId: NEXUS_CREDENTIAL_ID,
-                        //     artifacts: [
-                        //         // Artifact generated such as .jar, .ear and .war files.
-                        //         [artifactId: pom.artifactId, 
-                                    // classifier: '', 
-                                    // file: artifactPath, 
-                                    // type: pom.packaging],
-                        //         // Lets upload the pom.xml file for additional information for Transitive dependencies
-                        //         [artifactId: pom.artifactId, 
-                                    // classifier: '', 
-                                    // file: "pom.xml", 
-                                    // type: "pom"]
-                        //     ]
-                        // );
+
                         nexusPublisher nexusInstanceId: NEXUS_INSTANCE, 
                             nexusRepositoryId: NEXUS_REPOSITORY, 
                             packages: [
