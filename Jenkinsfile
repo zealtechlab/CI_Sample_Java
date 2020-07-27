@@ -30,6 +30,7 @@ pipeline {
         stage('Stage1') {
             steps {
             echo "Hello from 1"
+            echo sh(returnStdout: true, script: 'env')
             }
         }
         // CloneCode stage is commented as the repo is already cloned by the Jenkins pipe
@@ -84,7 +85,7 @@ pipeline {
                     // Find built artifact under target folder
                     filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
                     // Print some info from the artifact found
-                    echo "${BRANCH_NAME} ${CHANGE_ID} ${CHANGE_URL} ${CHANGE_TITLE} ${CHANGE_BRANCH} ${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
+                    echo "${filesByGlob[0].name} ${filesByGlob[0].path} ${filesByGlob[0].directory} ${filesByGlob[0].length} ${filesByGlob[0].lastModified}"
                     // Extract the path from the File found
                     artifactPath = filesByGlob[0].path;
                     // Assign to a boolean response verifying If the artifact name exists
