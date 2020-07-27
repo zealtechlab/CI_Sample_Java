@@ -14,8 +14,8 @@ pipeline {
         NEXUS_INSTANCE = 'sonatypeNexus'
         NEXUS_REPOSITORY = "CI_Sample_Java"
         // // Repository where we will upload the artifact
-        // NEXUS_REPOSITORY_RELEASES = "maven-releases"
-        // NEXUS_REPOSITORY_SNAPSHOTS = "maven-snapshots"
+        NEXUS_REPOSITORY_RELEASES = "maven-releases"
+        NEXUS_REPOSITORY_SNAPSHOTS = "maven-snapshots"
     }
 
     stages {
@@ -99,7 +99,7 @@ pipeline {
                                     packaging: pom.packaging, version: pom.version]
                                     ]
                                 ],
-                                , tagName: ${BRANCH_NAME}
+                                tagName: ${BRANCH_NAME}
                     } else {
                         error "*** File: ${artifactPath}, could not be found";
                     }
