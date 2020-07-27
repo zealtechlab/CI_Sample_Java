@@ -99,7 +99,7 @@ pipeline {
                                     packaging: pom.packaging, version: pom.version]
                                     ]
                                 ],
-                                tagName: ${BRANCH_NAME}
+                                tagName: BRANCH_NAME
                     } else {
                         error "*** File: ${artifactPath}, could not be found";
                     }
