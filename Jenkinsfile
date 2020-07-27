@@ -11,6 +11,7 @@ pipeline {
         maven 'maven'
     }
     environment {
+        NEXUS_INSTANCE = 'sonatypeNexus'
         // This can be nexus3 or nexus2
         NEXUS_VERSION = "nexus3"
         // This can be http or https
@@ -92,27 +93,37 @@ pipeline {
                     artifactExists = fileExists artifactPath;
                     if(artifactExists) {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
-                        nexusArtifactUploader(
-                            nexusVersion: NEXUS_VERSION,
-                            protocol: NEXUS_PROTOCOL,
-                            nexusUrl: NEXUS_URL,
-                            groupId: pom.groupId,
-                            version: pom.version,
-                            repository: NEXUS_REPOSITORY,
-                            credentialsId: NEXUS_CREDENTIAL_ID,
-                            artifacts: [
-                                // Artifact generated such as .jar, .ear and .war files.
-                                [artifactId: pom.artifactId,
-                                classifier: '',
-                                file: artifactPath,
-                                type: pom.packaging],
-                                // Lets upload the pom.xml file for additional information for Transitive dependencies
-                                [artifactId: pom.artifactId,
-                                classifier: '',
-                                file: "pom.xml",
-                                type: "pom"]
-                            ]
-                        );
+                        // nexusArtifactUploader(
+                        //     nexusVersion: NEXUS_VERSION, protocol: NEXUS_PROTOCOL,
+                        //     nexusUrl: NEXUS_URL, groupId: pom.groupId,
+                        //     version: pom.version, repository: NEXUS_REPOSITORY,
+                        //     credentialsId: NEXUS_CREDENTIAL_ID,
+                        //     artifacts: [
+                        //         // Artifact generated such as .jar, .ear and .war files.
+                        //         [artifactId: pom.artifactId, 
+                                    // classifier: '', 
+                                    // file: artifactPath, 
+                                    // type: pom.packaging],
+                        //         // Lets upload the pom.xml file for additional information for Transitive dependencies
+                        //         [artifactId: pom.artifactId, 
+                                    // classifier: '', 
+                                    // file: "pom.xml", 
+                                    // type: "pom"]
+                        //     ]
+                        // );
+                        nexusPublisher nexusInstanceId: NEXUS_INSTANCE, 
+                            nexusRepositoryId: NEXUS_REPOSITORY, 
+                            packages: [
+                                [$class: 'MavenPackage', 
+                                mavenAssetList: [
+                                    [classifier: '', extension: '', 
+                                    filePath: artifactPath]
+                                    ], 
+                                mavenCoordinate: [
+                                    artifactId: pom.artifactId, groupId: pom.groupId, 
+                                    packaging: pom.packaging, version: pom.version]
+                                    ]
+                                ]
                     } else {
                         error "*** File: ${artifactPath}, could not be found";
                     }
