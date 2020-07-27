@@ -68,7 +68,7 @@ pipeline {
         // }
         stage('Inspect_SonarQubeAnalytics') {
             steps {
-                withSonarQubeEnv('sonar-server') {
+                withSonarQubeEnv('SonarQube') { // this must match sonar server name from global configuraiton
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.2:sonar'
                 }
             }
