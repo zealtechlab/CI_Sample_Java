@@ -32,12 +32,6 @@ pipeline {
             echo "Hello from 1"
             }
         }
-        stage('Stage2') {
-            steps {
-            echo "Hello from 2!"
-            stageMessage "sample status message"
-            }
-        }
         // CloneCode stage is commented as the repo is already cloned by the Jenkins pipe
         stage("CloneCode") {
             steps {
