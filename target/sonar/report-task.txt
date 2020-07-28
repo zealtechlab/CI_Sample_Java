@@ -1,0 +1,6 @@
+projectKey=com.ztl.SampleLogin:LoginWebApp
+serverUrl=http://172.22.0.6:9000
+serverVersion=8.4.0.35506
+dashboardUrl=http://172.22.0.6:9000/dashboard?id=com.ztl.SampleLogin%3ALoginWebApp
+ceTaskId=AXOW2hDzYmIdiWMgYcfh
+ceTaskUrl=http://172.22.0.6:9000/api/ce/task?id=AXOW2hDzYmIdiWMgYcfh

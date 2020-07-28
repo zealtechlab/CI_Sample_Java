@@ -79,7 +79,7 @@
       </plugin>
 
     </plugins>
-    <sourceDirectory>.</sourceDirectory>
+    <sourceDirectory>src/main/java, src/main/webapp</sourceDirectory>
     <testSourceDirectory>src/main/test</testSourceDirectory>
     <finalName>LoginWebApp</finalName>
   </build>
