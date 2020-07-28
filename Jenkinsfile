@@ -49,17 +49,10 @@ pipeline {
         stage("UnitTest_mvn") {
             steps {
                 script {
-                    sh "mvn test"
+                    sh "mvn test -Dtest=SuiteTest"
                 }
             }
         }
-        // ToDo - enable junit testing when the test cases are ready
-        // stage('UnitTest'){
-        //     steps {
-        //         sh 'make check'
-        //         junit 'reports/**/*.xml' 
-        //     }
-        // }
         stage('Inspect_SonarQubeAnalytics') {
             steps {
                 withSonarQubeEnv('SonarQube') { // this must match sonar server name from global configuraiton
