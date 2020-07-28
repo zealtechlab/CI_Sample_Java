@@ -13,7 +13,6 @@
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>4.12</version>
-      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -32,17 +31,63 @@
       <groupId>net.sourceforge.jwebunit</groupId>
       <artifactId>jwebunit-htmlunit-plugin</artifactId>
       <version>3.3</version>
-      <scope>test</scope>
     </dependency>
   
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-server</artifactId>
+      <version>9.4.30.v20200611</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.jetty</groupId>
+      <artifactId>jetty-security</artifactId>
+      <version>9.4.30.v20200611</version>
+    </dependency>
+
   </dependencies>
   
   <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eclipse.jetty</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+        <version>9.4.30.v20200611</version>
+        <configuration>
+          <webApp><contextPath>/LoginWebApp</contextPath></webApp>
+          <httpConnector><port>8080</port></httpConnector>
+        </configuration>
+        
+      </plugin>
+
+      <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-compiler-plugin</artifactId>
+      <version>3.8.1</version>
+      <configuration>
+      <includes>
+          <include>src/main/java/**/*.java</include>
+          <include>src/main/webapp/**/*.java</include>
+      </includes>
+      </configuration>
+      </plugin>
+      
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+      </plugin>
+
+    </plugins>
+    <sourceDirectory>.</sourceDirectory>
+    <testSourceDirectory>src/main/test</testSourceDirectory>
     <finalName>LoginWebApp</finalName>
   </build>
   
   <properties>
-    <maven.compiler.source>1.8</maven.compiler.source>
-    <maven.compiler.target>1.8</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
+
 </project>

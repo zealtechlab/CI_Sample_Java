@@ -1,4 +1,5 @@
-package main.java.LoginWebApp;
+package main.test;
+
 import static net.sourceforge.jwebunit.junit.JWebUnit.assertLinkPresent;
 import static net.sourceforge.jwebunit.junit.JWebUnit.assertTitleEquals;
 import static net.sourceforge.jwebunit.junit.JWebUnit.beginAt;
@@ -10,19 +11,18 @@ import org.junit.Before;
 import org.junit.Test;
  
 import net.sourceforge.jwebunit.util.TestingEngineRegistry;
- 
- 
-public class JWebUnitTest {
+
+public class TestLogin {
     @Before
     public void prepare() {
         setTestingEngineKey(TestingEngineRegistry.TESTING_ENGINE_HTMLUNIT); 
-        setBaseUrl("http://localhost:8081/LoginWebApp");
+        setBaseUrl("http://localhost:8080/LoginWebApp");
     }
  
     @Test
     public void testLoginPage() {
-        beginAt("login.jsp"); 
-        assertTitleEquals(" Java Simple Login Web App");
+        beginAt("index.jsp"); 
+        assertTitleEquals("Java Simple Login Web App");
         assertLinkPresent("register");
         clickLink("register");
         assertTitleEquals("Registration");

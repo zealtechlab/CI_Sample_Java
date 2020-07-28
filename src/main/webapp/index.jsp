@@ -14,7 +14,7 @@
 	<tr> <td>Username</td><td><input type="text" name="userName" value="" /></td> </tr> 
 	<tr> <td>Password</td> <td><input type="password" name="password" value="" /></td></tr> 
 	<tr> <td><input type="submit" value="Login" /></td><td><input type="reset" value="Reset" /></td> </tr> 
-	<tr> <td colspan="2">New User <a href="register.jsp">Register Here</a></td> </tr> 
+	<tr> <td colspan="2">New User <a href="register.jsp" id="register">Register Here</a></td> </tr> 
 	</tbody> 
 	</table> 
 </center> 
