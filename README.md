@@ -2,4 +2,4 @@
 
 This is a simple demonstration project to showcase containerization of Java web application (no  database) in docker, includes sonar scanning, nexus repo package and unit test.
 
-Note: jwebtest is commented for later use.
+This Branch includes mvn deploy to nexus.
