@@ -44,7 +44,7 @@ pipeline {
                     sh "mvn package -DskipTests=true"
                 }
             }
-            tools { maven 'Maven' }
+            tools { maven 'maven' }
         }
         stage("UnitTest_mvn") {
             steps {
@@ -52,7 +52,7 @@ pipeline {
                     sh "mvn test -Dtest=SuiteTest"
                 }
             }
-            tools { maven 'Maven' }
+            tools { maven 'maven' }
         }
         stage('Inspect_SonarQubeAnalytics') {
             steps {
