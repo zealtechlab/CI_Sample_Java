@@ -44,7 +44,6 @@ pipeline {
                     sh "mvn package -DskipTests=true"
                 }
             }
-            tools { maven 'maven' }
         }
         stage("UnitTest_mvn") {
             steps {
