@@ -23,10 +23,8 @@
 hs_err_pid*
 
 # Ignored by user
-**bin/        # binaries are to be built by CI pipeline, but allowed in local environment/IDE
-**target/     # target packages are to be built by CI Pipeline, but allowed in local environment/IDE
-.project   # config file created by VSCODE IDE
-.vscode/    # config file created by VSCODE ID
+**bin/
 .classpath
-.vscode/launch.json
+.vscode/
 target/**
+.project
