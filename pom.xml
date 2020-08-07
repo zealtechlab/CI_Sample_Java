@@ -100,13 +100,13 @@
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-compiler-plugin</artifactId>
       <version>3.8.1</version>
-      <configuration>
+      <!-- <configuration>
       <includes>
           <include>src/main/java/**/*.java</include>
           <include>src/main/test/**/*.java</include>
           <include>src/main/webapp/**/*.java</include>
       </includes>
-      </configuration>
+      </configuration> -->
       </plugin>
       
       <plugin>
