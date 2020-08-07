@@ -28,3 +28,5 @@ hs_err_pid*
 .project   # config file created by VSCODE IDE
 .vscode/    # config file created by VSCODE ID
 .classpath
+.vscode/launch.json
+target/**
