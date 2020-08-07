@@ -103,7 +103,7 @@
       <configuration>
       <includes>
           <include>src/main/java/**/*.java</include>
-          <include>src/main/test/**/*.java</include>
+          <!-- <include>src/main/test/**/*.java</include> -->
           <include>src/main/webapp/**/*.java</include>
       </includes>
       </configuration>
@@ -147,7 +147,7 @@
         </executions>
       </plugin>
     </plugins>
-    <sourceDirectory>.</sourceDirectory>
+    <sourceDirectory>src/main/java, src/main/webapp</sourceDirectory>
     <testSourceDirectory>src/main/test</testSourceDirectory>
     <finalName>LoginWebApp</finalName>
   </build>
