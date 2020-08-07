@@ -103,6 +103,7 @@
       <configuration>
       <includes>
           <include>src/main/java/**/*.java</include>
+          <include>src/main/test/**/*.java</include>
           <include>src/main/webapp/**/*.java</include>
       </includes>
       </configuration>
