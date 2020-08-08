@@ -101,9 +101,6 @@
       <artifactId>maven-compiler-plugin</artifactId>
       <version>3.8.1</version>
       <configuration>
-      <!-- <includes>
-          <include>src/main/java/**/*.java</include>
-      </includes> -->
       </configuration>
       </plugin>
       
