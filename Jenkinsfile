@@ -22,7 +22,7 @@ pipeline {
         stage('Stage1') {
             steps {
             echo "Hello from 1"
-            echo sh(returnStdout: true, script: 'env')
+            sh 'printenv'
             }
         }
         // CloneCode stage is commented as the repo is already cloned by the Jenkins pipe
@@ -31,7 +31,6 @@ pipeline {
                 script {
                     // Let's clone the source
                     echo 'Repo Checkout'
-                    sh 'printenv'
                     // git 'https://github.com/danielalejandrohc/cargotracker.git';
                 }
             }
