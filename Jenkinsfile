@@ -62,7 +62,7 @@ pipeline {
         // }
         stage('Inspect_SonarQubeAnalytics') {
             steps {
-                withSonarQubeEnv('SonarQube') { // this must match sonar server name from global configuraiton
+                withSonarQubeEnv('sonarQube') { // this must match sonar server name from global configuraiton
                 // if [[ "$CI_BRANCH_NAME" == 'Feature/*' ]] || [[ "$CI_BRANCH_NAME" == 'master' ]] || [[ "$CI_BRANCH_NAME" == 'release/*' ]]; then
                     sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
                 // fi
