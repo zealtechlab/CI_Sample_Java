@@ -56,10 +56,10 @@ pipeline {
         }
         stage('Inspect_SonarQubeAnalytics') {
             steps {
-                withSonarQubeEnv('SonarQube') { // this must match sonar server name from global configuraiton
+                withSonarQubeEnv('sonarQube') { // this must match sonar server name from global configuraiton
                 // if [[ "$CI_BRANCH_NAME" == 'Feature/*' ]] || [[ "$CI_BRANCH_NAME" == 'master' ]] || [[ "$CI_BRANCH_NAME" == 'release/*' ]]; then
-                    // sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-                    sh 'mvn clean package sonar:sonar -Dtest=SuiteTest -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=ad62157c6bb0f42150da5975f25e3260660a9826'
+                    sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
+                    // sh 'mvn clean package sonar:sonar -Dtest=SuiteTest -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=ad62157c6bb0f42150da5975f25e3260660a9826'
                 // fi
                 }
             }
