@@ -12,7 +12,7 @@ pipeline {
     // }
     environment {
         NEXUS_INSTANCE = 'sonatypeNexus'
-        NEXUS_REPOSITORY = "maven-public"
+        NEXUS_REPOSITORY = "CI_Sample_Java"
         // // Repository where we will upload the artifact
         NEXUS_REPOSITORY_RELEASES = "maven-releases"
         NEXUS_REPOSITORY_SNAPSHOTS = "maven-snapshots"
@@ -81,7 +81,7 @@ pipeline {
                         echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version ${pom.version}";
 
                         nexusPublisher nexusInstanceId: NEXUS_INSTANCE, 
-                            nexusRepositoryId: NEXUS_REPOSITORY_SNAPSHOTS, 
+                            nexusRepositoryId: NEXUS_REPOSITORY, 
                             packages: [
                                 [$class: 'MavenPackage', 
                                 mavenAssetList: [
