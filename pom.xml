@@ -50,8 +50,8 @@
 <!-- Nexus Repo reference *** UNTESTED *** -->
   <distributionManagement>
     <snapshotRepository>
-       <id>nexus-snapshots</id>
-       <url>http://localhost:8081/nexus/content/repositories/snapshots</url>
+       <id>maven-snapshots</id>
+       <url>http://localhost:28081/nexus/content/repositories/snapshots</url>
     </snapshotRepository>
   </distributionManagement>
  
@@ -91,7 +91,7 @@
       </executions>
       <configuration>
         <serverId>nexus</serverId>
-        <nexusUrl>http://localhost:8081/nexus/</nexusUrl>
+        <nexusUrl>http://localhost:28081/nexus/</nexusUrl>
         <skipStaging>true</skipStaging>
       </configuration>
     </plugin>
@@ -103,7 +103,6 @@
       <configuration>
       <includes>
           <include>src/main/java/**/*.java</include>
-          <include>src/main/test/**/*.java</include>
           <include>src/main/webapp/**/*.java</include>
       </includes>
       </configuration>
@@ -147,7 +146,7 @@
         </executions>
       </plugin>
     </plugins>
-    <sourceDirectory>src/main/java, src/main/webapp</sourceDirectory>
+    <sourceDirectory>.</sourceDirectory>
     <testSourceDirectory>src/main/test</testSourceDirectory>
     <finalName>LoginWebApp</finalName>
   </build>

@@ -1,5 +1,3 @@
-package main.test;
-
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
