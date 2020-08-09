@@ -59,7 +59,7 @@ pipeline {
                 withSonarQubeEnv('sonarQube') { // this must match sonar server name from global configuraiton
                 // if [[ "$CI_BRANCH_NAME" == 'Feature/*' ]] || [[ "$CI_BRANCH_NAME" == 'master' ]] || [[ "$CI_BRANCH_NAME" == 'release/*' ]]; then
                     // sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar'
-                    sh 'mvn clean package install sonar:sonar -Dtest=SuiteTest -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=09949926d3d8c85fd2b9c0cf64cacf43ff683a43'
+                    sh 'mvn clean package install sonar:sonar -Dtest=SuiteTest -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=454d59b6e686ff8a6cf6f984ed2553e615c33cfd'
                 // fi
                 }
             }
